@@ -34,6 +34,7 @@
 (line-number-mode t)
 (column-number-mode t)
 (size-indication-mode t)
+(global-linum-mode t)
 
 ;; enable y/n answers
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -42,6 +43,7 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 
+;; new line at the end
 (setq require-final-newline t)
 
 ;; revert buffers automatically when underlying files are changed externally
@@ -70,10 +72,12 @@
 ;; go for maximum
 (toggle-frame-maximized)
 
+;; remove sounds
+(setq ring-bell-function 'ignore)
+
 ;; change meta from alt to cmd
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier nil)
-
 
 ;; ruby-mode tweaks
 (setq ruby-insert-encoding-magic-comment nil)
