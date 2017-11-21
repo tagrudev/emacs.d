@@ -82,6 +82,9 @@
 ;; ruby-mode tweaks
 (setq ruby-insert-encoding-magic-comment nil)
 
+;;; Custom functions
+(load "~/.emacs.d/functions.el")
+
 ;;; Custom keybindings
 (load "~/.emacs.d/keys.el")
 
@@ -91,3 +94,7 @@
 
 ;; trim your whitespaces
 (add-hook 'before-save-hook 'whitespace-cleanup)
+
+;; use binding.pry in rspec-mode
+(add-hook 'after-init-hook 'inf-ruby-switch-setup)
+(add-hook 'compilation-filter-hook 'inf-ruby-auto-enter)
