@@ -1,3 +1,15 @@
+(defun delete-grep-header ()
+  "Removes grep information from buffer -
+   You can later widen to reveal these lines again with C-x n w"
+  (save-excursion
+    (with-current-buffer grep-last-buffer
+      (goto-line 5)
+      (narrow-to-region (point) (point-max)))))
+
+(defadvice grep (after delete-grep-header activate) (delete-grep-header))
+(defadvice rgrep (after delete-grep-header activate) (delete-grep-header))
+
+
 (defun duplicate-current-line-or-region (arg)
   "Duplicates the current line or region ARG times.
 If there's no region, the current line will be duplicated. However, if
